@@ -10,16 +10,16 @@
 
 @implementation AppDelegate
 
+static NSNumber *isIpadDevice;
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -144,6 +144,21 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
++(BOOL)isIpad {
+    
+    if(isIpadDevice == nil) {
+        
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            isIpadDevice = [NSNumber numberWithBool:YES];
+        } else {
+            isIpadDevice = [NSNumber numberWithBool:NO];
+        }
+        
+    }
+    
+    return [isIpadDevice boolValue];
 }
 
 @end
