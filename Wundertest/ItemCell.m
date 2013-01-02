@@ -54,7 +54,7 @@
         [self.completeButton setImage:[UIImage imageNamed:@"ItemCheckBoxChecked"] forState:UIControlStateNormal];
         [self.backgroundView setAlpha:0.6f];
     } else {
-        [self.completeButton setImage:[UIImage imageNamed:@"ItemCheckBoxUnChecked"] forState:UIControlStateNormal];
+        [self.completeButton setImage:[UIImage imageNamed:@"ItemCheckBoxUnchecked"] forState:UIControlStateNormal];
         [self.backgroundView setAlpha:1.0f];
     }
 }
